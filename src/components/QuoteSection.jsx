@@ -3,7 +3,7 @@ import banner from "../assets/images/Banner-board.png";
 
 const QuoteSection = () => {
   return (
-    <div className="px-6 py-6 bg-gray-100">
+    <div className="px-6 py-6 bg-[#f7f8fa]">
       <div
         className="relative rounded-xl overflow-hidden"
         style={{

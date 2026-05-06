@@ -2,7 +2,7 @@ import React from "react";
 
 const RecommendedSection = ({ products = [] }) => {
   return (
-    <div className="px-6 py-6 bg-gray-100">
+    <div className="px-6 py-6 bg-[#f7f8fa]">
 
       {/* 🔷 TITLE */}
       <h2 className="text-3xl font-bold mb-4">

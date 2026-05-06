@@ -32,7 +32,7 @@ const services = [
 
 const OurExtraServices = () => {
   return (
-    <div className="px-6 py-8 bg-gray-100">
+    <div className="px-6 py-8 bg-[#f7f8fa]">
       <h2 className="text-3xl font-bold mb-6">
         Our extra services
       </h2>

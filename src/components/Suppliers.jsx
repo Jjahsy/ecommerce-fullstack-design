@@ -26,7 +26,7 @@ const suppliers = [
 
 const SuppliersSection = () => {
   return (
-    <div className="px-6 py-8 bg-gray-100">
+    <div className="px-6 py-8 bg-[#f7f8fa]">
       <h2 className="text-3xl font-semibold mb-6">
         Suppliers by region
       </h2>

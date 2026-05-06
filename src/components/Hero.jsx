@@ -20,7 +20,7 @@ const Hero = () => {
   ];
 
   return (
-    <div className="px-6 py-4 bg-gray-100">
+    <div className="px-6 py-4 bg-[#f7f8fa]">
 
       {/* 🔥 ONE MAIN BOX */}
       <div className="bg-white rounded shadow-sm p-4">

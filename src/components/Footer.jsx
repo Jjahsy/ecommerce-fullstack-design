@@ -15,7 +15,7 @@ import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-gray-200 mt-12">
+    <footer className="bg-white border-t border-gray-200 ">
       
       {/* 🔷 SECTION 1: NEWSLETTER */}
       <div className="bg-[#eff2f4] py-10 px-6">

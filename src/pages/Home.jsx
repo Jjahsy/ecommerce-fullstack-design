@@ -5,7 +5,8 @@ import QuoteSection from "../components/QuoteSection";
 import RecommendedSection from "../components/RecommendedSection";
 import ExtraServices from "../components/ExtraServices";
 import Suppliers from "../components/Suppliers";
-import Footer from "../components/Footer";
+
+import Hero from "../components/Hero";
 
 // 🔥 Banner Images
 import Home from "../assets/images/Home.png";
@@ -85,6 +86,7 @@ const HomePage = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
 
+      <Hero />
       {/* 🔷 DEALS */}
       <DealsSection />
 
@@ -112,7 +114,7 @@ const HomePage = () => {
 
       <Suppliers />
 
-      <Footer />
+      
 
     </div>
   );
