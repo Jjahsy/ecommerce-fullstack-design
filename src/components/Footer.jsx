@@ -1,22 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logo from "../assets/images/logo-colored.png";
 import USFlag from "../assets/flags/usa.png"; // Flag import karein
-import { 
-  FaFacebookF, 
-  FaTwitter, 
-  FaLinkedinIn, 
-  FaInstagram, 
-  FaYoutube, 
-  FaApple, 
-  FaGooglePlay, 
-  FaChevronUp 
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+  FaYoutube,
+  FaApple,
+  FaGooglePlay,
+  FaChevronUp
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
     <footer className="bg-white border-t border-gray-200 ">
-      
+
       {/* 🔷 SECTION 1: NEWSLETTER */}
       <div className="bg-[#eff2f4] py-10 px-6">
         <div className="max-w-7xl mx-auto text-center">
@@ -44,7 +45,7 @@ const Footer = () => {
 
       {/* 🔷 SECTION 2: MAIN LINKS */}
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-8">
-        
+
         {/* BRAND COLUMN */}
         <div className="lg:col-span-2">
           <div className="flex items-center gap-2 mb-4">
@@ -53,9 +54,9 @@ const Footer = () => {
           <p className="text-gray-500 text-[15px] leading-relaxed mb-6 max-w-[260px]">
             Best information about the company goes here but now lorem ipsum is
           </p>
-          
+
           <div className="flex gap-2">
-            {[ 
+            {[
               { Icon: FaFacebookF, color: "hover:bg-blue-600" },
               { Icon: FaTwitter, color: "hover:bg-blue-400" },
               { Icon: FaLinkedinIn, color: "hover:bg-blue-700" },
@@ -70,17 +71,45 @@ const Footer = () => {
         </div>
 
         {/* LINKS COLUMNS */}
-        {["About", "Partnership", "Information", "For users"].map((title) => (
-          <div key={title}>
-            <h3 className="font-bold text-gray-800 mb-4">{title}</h3>
-            <ul className="text-gray-500 space-y-2 text-[15px]">
-              <li className="hover:text-blue-600 cursor-pointer">About Us</li>
-              <li className="hover:text-blue-600 cursor-pointer">Find store</li>
-              <li className="hover:text-blue-600 cursor-pointer">Categories</li>
-              <li className="hover:text-blue-600 cursor-pointer">Blogs</li>
-            </ul>
-          </div>
-        ))}
+        <div>
+          <h3 className="font-bold text-gray-800 mb-4">About</h3>
+          <ul className="text-gray-500 space-y-2 text-[15px]">
+            <li><Link to="/about" className="hover:text-blue-600">About Us</Link></li>
+            <li><Link to="/listing" className="hover:text-blue-600">Find store</Link></li>
+            <li><Link to="/listing" className="hover:text-blue-600">Categories</Link></li>
+            <li className="hover:text-blue-600 cursor-pointer">Blogs</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-bold text-gray-800 mb-4">Partnership</h3>
+          <ul className="text-gray-500 space-y-2 text-[15px]">
+            <li className="hover:text-blue-600 cursor-pointer">Sell on Ecommerce</li>
+            <li className="hover:text-blue-600 cursor-pointer">Become a Vendor</li>
+            <li className="hover:text-blue-600 cursor-pointer">Affiliate Program</li>
+            <li className="hover:text-blue-600 cursor-pointer">Partnership</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-bold text-gray-800 mb-4">Information</h3>
+          <ul className="text-gray-500 space-y-2 text-[15px]">
+            <li><Link to="/contact" className="hover:text-blue-600">Help Center</Link></li>
+            <li><Link to="/contact" className="hover:text-blue-600">Contact Us</Link></li>
+            <li><Link to="/terms" className="hover:text-blue-600">Terms & Conditions</Link></li>
+            <li><Link to="/privacy" className="hover:text-blue-600">Privacy Policy</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-bold text-gray-800 mb-4">For users</h3>
+          <ul className="text-gray-500 space-y-2 text-[15px]">
+            <li><Link to="/login" className="hover:text-blue-600">Login</Link></li>
+            <li><Link to="/register" className="hover:text-blue-600">Register</Link></li>
+            <li><Link to="/profile" className="hover:text-blue-600">My Profile</Link></li>
+            <li><Link to="/cart" className="hover:text-blue-600">My Cart</Link></li>
+          </ul>
+        </div>
 
         {/* APP DOWNLOAD */}
         <div className="lg:col-span-1">

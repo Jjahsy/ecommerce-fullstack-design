@@ -5,7 +5,7 @@ const RecommendedSection = ({ products = [] }) => {
     <div className="px-6 py-6 bg-[#f7f8fa]">
 
       {/* 🔷 TITLE */}
-      <h2 className="text-3xl font-bold mb-4">
+      <h2 className="text-xl md:text-3xl font-bold mb-4">
         Recommended items
       </h2>
 

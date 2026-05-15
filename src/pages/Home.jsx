@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DealsSection from "../components/DealsSection";
 import CategorySection from "../components/CategorySection";
 import QuoteSection from "../components/QuoteSection";
 import RecommendedSection from "../components/RecommendedSection";
 import ExtraServices from "../components/ExtraServices";
 import Suppliers from "../components/Suppliers";
+import productImages from "../data/productImages";
 
 import Hero from "../components/Hero";
 
@@ -44,6 +45,29 @@ import pot from "../assets/images/bowl.png";
 import kettle from "../assets/images/electric kattle.png";
 
 const HomePage = () => {
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [featuredError, setFeaturedError] = useState("");
+
+  // 🔷 Fetch featured products from backend
+  useEffect(() => {
+    const loadFeatured = async () => {
+      try {
+        const response = await fetch("/api/products");
+        if (!response.ok) {
+          throw new Error("Failed to load featured products");
+        }
+        const data = await response.json();
+        const enhanced = data.slice(0, 6).map((product) => ({
+          ...product,
+          image: productImages[product.imageKey] || ""
+        }));
+        setFeaturedProducts(enhanced);
+      } catch (error) {
+        setFeaturedError("Unable to load featured products at this time.");
+      }
+    };
+    loadFeatured();
+  }, []);
 
   // 🔷 HOME PRODUCTS
   const homeProducts = [
@@ -84,7 +108,7 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-gray-50 min-h-screen">
 
       <Hero />
       {/* 🔷 DEALS */}
@@ -95,6 +119,7 @@ const HomePage = () => {
         title={"Home\nand outdoor"}
         image={Home}
         products={homeProducts}
+        ctaLink="/listing"
       />
 
       {/* 🔷 ELECTRONICS */}
@@ -102,19 +127,25 @@ const HomePage = () => {
         title={"Consumer electronics\nand gadgets"}
         image={Electronics}
         products={electronicProducts}
+        ctaLink="/listing"
       />
 
       {/* 🔷 QUOTE */}
       <QuoteSection />
 
       {/* 🔷 RECOMMENDED */}
-      <RecommendedSection products={recommendedProducts} />
+      <RecommendedSection
+        products={featuredProducts.length > 0 ? featuredProducts : recommendedProducts}
+      />
+      {featuredError && (
+        <div className="px-6 py-2 text-center text-sm text-red-600">
+          {featuredError}
+        </div>
+      )}
 
       <ExtraServices />
 
       <Suppliers />
-
-      
 
     </div>
   );

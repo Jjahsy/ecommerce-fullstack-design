@@ -20,15 +20,15 @@ const Hero = () => {
   ];
 
   return (
-    <div className="px-6 py-4 bg-[#f7f8fa]">
+    <div className="md:px-6 md:py-4 bg-[#f7f8fa]">
 
       {/* 🔥 ONE MAIN BOX */}
-      <div className="bg-white rounded shadow-sm p-4">
+      <div className="bg-white md:rounded md:shadow-sm md:p-4">
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 
-          {/* 🔷 LEFT SIDEBAR */}
-          <div>
+          {/* 🔷 LEFT SIDEBAR (Hidden on Mobile) */}
+          <div className="hidden md:block">
             <ul className="space-y-2 text-sm">
 
               {categories.map((item) => (
@@ -51,7 +51,7 @@ const Hero = () => {
 
           {/* 🔷 CENTER BANNER */}
           <div
-  className="md:col-span-2 rounded bg-cover bg-center min-h-[220px] flex items-start"
+            className="md:col-span-2 bg-cover bg-center min-h-[220px] flex items-start"
   style={{ backgroundImage: `url(${banner})` }}
 >
 
@@ -75,9 +75,8 @@ const Hero = () => {
 </div>
 
 
-          {/* 🔷 RIGHT CARDS */}
-          
-         <div className="flex flex-col gap-4">
+          {/* 🔷 RIGHT CARDS (Hidden on Mobile) */}
+          <div className="hidden md:flex flex-col gap-4">
 
   {/* 🔷 LOGIN CARD */}
   <div className="bg-blue-100 p-4 rounded">

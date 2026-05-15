@@ -60,55 +60,58 @@ const DealsSection = () => {
   ];
 
   return (
-    <div className="px-6 py-4 bg-[#f7f8fa]">
+    <div className="md:px-6 md:py-4 bg-[#f7f8fa]">
 
-      <div className="bg-white rounded shadow-sm p-4">
+      <div className="bg-white md:rounded md:shadow-sm">
 
-        <div className="grid grid-cols-6 gap-4 items-center">
+        <div className="flex flex-col md:flex-row md:items-center border border-gray-200 rounded-lg overflow-hidden">
 
-          {/* 🔷 LEFT SIDE */}
-          <div className="col-span-1">
-            <h2 className="font-semibold text-lg">Deals and offers</h2>
-            <p className="text-sm text-gray-500 mb-3">
-              Hygiene equipments
-            </p>
+          {/* 🔷 LEFT SIDE (Title & Timer) */}
+          <div className="flex md:flex-col justify-between items-center md:items-start p-4 md:p-6 md:w-[280px] md:border-r border-gray-200 shrink-0">
+            <div>
+              <h2 className="font-bold text-gray-900 text-lg">Deals and offers</h2>
+              <p className="text-sm text-gray-500 mb-0 md:mb-4">Electronic equipments</p>
+            </div>
 
             {/* 🔥 LIVE TIMER */}
-            <div className="flex gap-2 text-center text-xs text-white">
-              <div className="bg-black px-2 py-1 rounded">
-                {timeLeft.days} <br />Days
+            <div className="flex gap-1.5 md:gap-2 text-center text-xs md:text-white text-gray-800">
+              <div className="bg-gray-100 md:bg-gray-800 md:text-white px-2 py-1.5 rounded min-w-[36px]">
+                <span className="font-bold text-sm">{timeLeft.days}</span> <br /><span className="text-[10px]">Days</span>
               </div>
-              <div className="bg-black px-2 py-1 rounded">
-                {timeLeft.hours} <br />Hour
+              <div className="bg-gray-100 md:bg-gray-800 md:text-white px-2 py-1.5 rounded min-w-[36px]">
+                <span className="font-bold text-sm">{timeLeft.hours}</span> <br /><span className="text-[10px]">Hour</span>
               </div>
-              <div className="bg-black px-2 py-1 rounded">
-                {timeLeft.minutes} <br />Min
+              <div className="bg-gray-100 md:bg-gray-800 md:text-white px-2 py-1.5 rounded min-w-[36px]">
+                <span className="font-bold text-sm">{timeLeft.minutes}</span> <br /><span className="text-[10px]">Min</span>
               </div>
-              <div className="bg-black px-2 py-1 rounded">
-                {timeLeft.seconds} <br />Sec
+              <div className="bg-gray-100 md:bg-gray-800 md:text-white px-2 py-1.5 rounded min-w-[36px]">
+                <span className="font-bold text-sm">{timeLeft.seconds}</span> <br /><span className="text-[10px]">Sec</span>
               </div>
             </div>
           </div>
 
-          {/* 🔷 PRODUCTS */}
-          {products.map((item, index) => (
-  <div
-    key={index}
-    className="border rounded p-4 text-center hover:shadow-md transition flex flex-col justify-between h-[200px]"
-  >
-    <img
-      src={item.image}
-      alt={item.name}
-      className="mx-auto mb-2 h-24 object-contain"
-    />
+          {/* 🔷 PRODUCTS (Horizontal Scroll on Mobile) */}
+          <div className="flex overflow-x-auto hide-scrollbar w-full border-t md:border-t-0 border-gray-200 divide-x divide-gray-200">
+            {products.map((item, index) => (
+              <div
+                key={index}
+                className="p-4 md:p-6 text-center hover:bg-gray-50 transition flex flex-col justify-between shrink-0 w-[140px] md:w-1/5"
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="mx-auto mb-3 h-20 md:h-24 object-contain mix-blend-multiply"
+                />
 
-    <p className="text-sm font-medium">{item.name}</p>
-
-    <p className="text-red-500 text-xs font-semibold mt-1">
-      {item.discount}
-    </p>
-  </div>
-))}
+                <div>
+                  <p className="text-sm text-gray-800 mb-2 whitespace-nowrap overflow-hidden text-ellipsis">{item.name}</p>
+                  <span className="bg-red-100 text-red-500 text-xs font-semibold px-3 py-1 rounded-full">
+                    {item.discount}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>
